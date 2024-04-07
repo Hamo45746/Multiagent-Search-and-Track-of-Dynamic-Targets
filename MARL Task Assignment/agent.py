@@ -1,13 +1,15 @@
 import numpy as np
 
-class Agent:
+class Agent: # Depreciated - now using PettingZoo/sisl/pursuit/agent_layer and agent_utils 
     def __init__(self, x, y, theta, speed, id, obs_range, comm_range):
         self.x = x
         self.y = y
         self.theta = theta
         self.speed = speed
         self.id = id
-        # Initialize the known state space with information about when and where objects were last observed
+        self.obs_range = obs_range
+        self.comm_range = comm_range
+        # Initialize the known state space with information about objects previously observed
         self.known_state = np.full((self.D, self.M, self.N), fill_value=-np.inf)
         
     def gen_observation(self, global_state):
@@ -28,18 +30,19 @@ class Agent:
                         
         return observation
     
-    def update_obs_from_comms(self, communicated_states):
+    def update_obs_from_comms(self, observation, global_state):
         """
         Update the known state with information received from other agents.
+        Relies on knowing global state for ally positions.
+        observation: current known state to update
         """
-        # Merge communicated states into self.known_state considering the timestamp
-        pass
+        
 
     def decide_action(self):
         """
         Decide the next action based on the known state.
         """
-        # Decision-making logic here
+        # Maybe use this for decision-making logic?
         pass
 
 
