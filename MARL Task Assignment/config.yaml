@@ -1,0 +1,20 @@
+# Configuration for MARL Environment
+grid_size:
+  X: 50          # Width of the grid
+  Y: 50          # Height of the grid
+  D: 4           # Number of layers in the grid (e.g., environment, targets, jammers, agent positions)
+
+obs_range: 5     # Observation range for each agent
+
+n_agents: 10     # Number of agents in the environment
+n_targets: 15    # Number of targets in the environment
+n_jammers: 5     # Number of jammers in the environment
+jamming_radius: 7 # Radius of jamming effect from each jammer
+
+task_types: ['search', 'track', 'destroy']  # List of task types agents can perform
+
+max_cycles: 1000 # Maximum number of cycles or time steps in an episode
+
+map_path: 'path/to/your/map.npy'  # Path to the .npy map file
+
+pixel_scale: 30  # Scaling factor for rendering (optional, defaults to 30 if not specified)
